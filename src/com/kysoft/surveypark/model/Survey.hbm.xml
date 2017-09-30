@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.kysoft.surveypark.model">
+    <class name="Survey" table="surveys">
+        <id name="id" column="id" type="integer">
+            <generator class="identity"/>
+        </id>
+
+        <property name="title" column="title" type="string" length="100"/>
+        <property name="preText" column="pre_text" type="string" length="100"/>
+        <property name="nextText" column="next_text" type="string" length="100"/>
+        <property name="exitText" column="exit_text" type="string" length="100"/>
+        <property name="doneText" column="done_text" type="string" length="100"/>
+        <property name="createTime" column="create_time" type="timestamp" update="false"/>
+
+        <many-to-one name="user" class="User" column="user_id"/>
+
+    </class>
+
+</hibernate-mapping>
